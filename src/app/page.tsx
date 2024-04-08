@@ -4,13 +4,14 @@ import { SignOutButton, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { SignInButton, useSession } from "@clerk/nextjs";
 import { useMutation } from "convex/react";
 import Image from "next/image";
+import { api } from "../../convex/_generated/api";
 
 export default function Home() {
   const createFile = useMutation(api.files.createFile)
   const session = useSession();
   return (
     <main>
-      <SignedIn>
+      {/* <SignedIn>
         <SignOutButton>
           <Button variant={'secondary'}>Sign Out</Button>
         </SignOutButton>
@@ -20,8 +21,10 @@ export default function Home() {
         <Button variant={'secondary'}>Sign In</Button>
         </SignInButton>
 
-        <Button onClick={}>Click me</Button>
-      </SignedOut>
+        <Button onClick={() => createFile({
+          text: 'hello wolrd'
+        })}>Click me</Button>
+      </SignedOut> */}
     </main>
   );
 }
